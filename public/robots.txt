@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rajputanacabsmhow.in
+
+# Sitemaps
+Sitemap: https://rajputanacabsmhow.in/sitemap.xml

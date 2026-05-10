@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 255 255 255;
+    --color-surface: 248 249 250;
+    --color-text: 26 26 46;
+    --color-text-muted: 107 114 128;
+    --color-border: 229 231 235;
+  }
+  .dark {
+    --color-bg: 15 17 23;
+    --color-surface: 30 32 40;
+    --color-text: 244 244 245;
+    --color-text-muted: 161 161 170;
+    --color-border: 63 63 70;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background font-body text-text-primary antialiased transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    .motion-reduce\:transform-none {
+      transform: none !important;
+    }
+    .motion-reduce\:animate-none {
+      animation: none !important;
+    }
+  }
+}

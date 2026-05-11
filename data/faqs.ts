@@ -55,6 +55,31 @@ export const servicesFaqs: FaqItem[] = [
 ]
 
 export function destinationFaqs(dest: Destination): FaqItem[] {
+  if (dest.id === 'airport') {
+    return [
+      {
+        question: `How long does Mhow to ${dest.name} take by taxi?`,
+        answer:
+          'Typically about 45–75 minutes between Mhow and Devi Ahilyabai Holkar Airport (IDR), depending on traffic and which terminal you use.',
+      },
+      {
+        question: 'What is included in the airport transfer fare?',
+        answer:
+          'Indicative rates cover a standard Mhow ↔ airport run with driver and AC cab. Parking at the airport, if any, and any extra waiting beyond agreed time may be quoted separately — confirm when you book.',
+      },
+      {
+        question: 'Can I book a one-way airport drop or pickup only?',
+        answer:
+          'Yes. We do one-way drops to the airport and pickups from the airport to Mhow. Share your flight number for tracking on arrivals.',
+      },
+      {
+        question: 'Which cab should I choose for the airport?',
+        answer:
+          'Swift Dzire / Toyota Etios (from ₹1,400+) is ideal for up to 4 guests with light luggage. Ertiga / KIA Carens (from ₹1,800+) suits families or extra bags — compare the table above.',
+      },
+    ]
+  }
+
   return [
     {
       question: `How long does Mhow to ${dest.name} take by taxi?`,

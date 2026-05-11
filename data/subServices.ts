@@ -249,7 +249,7 @@ export const subServices: SubService[] = [
     vehicles: [
       {
         id: 'innova-char-dham',
-        name: 'Innova Crysta (4 persons)',
+        name: 'Innova Crysta (7 persons)',
         image: '/images/cars/innova-crysta.jpg',
         description: 'Most comfortable car for Char Dham Yatra. 7 seater with ample luggage space.',
         farePerKm: 18,

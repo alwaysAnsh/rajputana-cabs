@@ -24,6 +24,9 @@ const routeFareRanges: Record<string, RouteRange> = {
   omkareshwar: { sedan: [1400, 2300], rest: 3500 },
 }
 
+/** Airport route: fixed indicative one-way packages (not per-km table). */
+const AIRPORT_FARE_FROM = 1400
+
 function formatRange(value: [number, number] | number): string {
   if (Array.isArray(value)) {
     return `₹${value[0].toLocaleString('en-IN')}-${value[1].toLocaleString('en-IN')}`
@@ -43,6 +46,14 @@ export function generateMetadata({ params }: { params: { destinationSlug: string
   const dest = getDestinationBySlug(params.destinationSlug)
   const dzire = cars.find((c) => c.id === 'dzire')
   if (!dest || !dzire) return {}
+  if (dest.id === 'airport') {
+    return {
+      title: `Mhow to Indore Airport Taxi | ₹${AIRPORT_FARE_FROM.toLocaleString('en-IN')}+ onwards | Rajputana Cabs`,
+      description:
+        'Book Mhow ↔ Indore Airport (IDR) taxi. Swift Dzire / Etios from ₹1,400+. Ertiga / Carens from ₹1,800+. Call or WhatsApp for pickup with flight tracking.',
+      alternates: { canonical: `/${dest.slug}` },
+    }
+  }
   const fare = calculateFare(dest.distanceKm, dzire.ratePerKm).oneWay
   return {
     title: `Mhow to ${dest.name} Taxi | ₹${fare} Round Trip | Rajputana Cabs`,
@@ -57,35 +68,60 @@ export default function DestinationPage({ params }: { params: { destinationSlug:
 
   const hasRangePricing = dest.id in routeFareRanges
   const rangeRule = routeFareRanges[dest.id]
+  const isAirportRoute = dest.id === 'airport'
 
-  const rows = cars.map((car) => {
-    const fare = calculateFare(dest.distanceKm, car.ratePerKm)
-    if (hasRangePricing && rangeRule) {
-      const groupRange = car.id === 'dzire' ? rangeRule.sedan : rangeRule.rest
-      return {
-        key: car.id,
-        carName: car.name,
-        capacity: car.capacity,
-        oneWay: oneWayComparable(groupRange),
-        fareDisplay: formatRange(groupRange),
-      }
-    }
-    return {
-      key: car.id,
-      carName: car.name,
-      capacity: car.capacity,
-      oneWay: fare.oneWay,
-    }
-  })
+  const dzireCar = cars.find((c) => c.id === 'dzire')!
+  const ertigaCar = cars.find((c) => c.id === 'ertiga')!
 
-  const dzireFare = calculateFare(dest.distanceKm, cars.find((c) => c.id === 'dzire')!.ratePerKm).oneWay
+  const rows = isAirportRoute
+    ? [
+        {
+          key: dzireCar.id,
+          carName: dzireCar.name,
+          capacity: dzireCar.capacity,
+          oneWay: AIRPORT_FARE_FROM,
+          fareDisplay: '₹1,400+',
+        },
+        {
+          key: ertigaCar.id,
+          carName: ertigaCar.name,
+          capacity: ertigaCar.capacity,
+          oneWay: 1800,
+          fareDisplay: '₹1,800+',
+        },
+      ]
+    : cars.map((car) => {
+        const fare = calculateFare(dest.distanceKm, car.ratePerKm)
+        if (hasRangePricing && rangeRule) {
+          const groupRange = car.id === 'dzire' ? rangeRule.sedan : rangeRule.rest
+          return {
+            key: car.id,
+            carName: car.name,
+            capacity: car.capacity,
+            oneWay: oneWayComparable(groupRange),
+            fareDisplay: formatRange(groupRange),
+          }
+        }
+        return {
+          key: car.id,
+          carName: car.name,
+          capacity: car.capacity,
+          oneWay: fare.oneWay,
+        }
+      })
+
+  const dzireFare = isAirportRoute
+    ? AIRPORT_FARE_FROM
+    : calculateFare(dest.distanceKm, cars.find((c) => c.id === 'dzire')!.ratePerKm).oneWay
   const related = destinations.filter((d) => d.slug !== dest.slug).slice(0, 4)
 
   return (
     <article className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
       <header>
         <h1 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">
-          Mhow to {dest.name} Taxi | ₹{dzireFare} onwards
+          {isAirportRoute
+            ? `Mhow to ${dest.name} Taxi | ₹${dzireFare.toLocaleString('en-IN')}+ onwards`
+            : `Mhow to ${dest.name} Taxi | ₹${dzireFare} onwards`}
         </h1>
         <p className="mt-4 max-w-3xl text-lg text-text-secondary">{dest.description}</p>
         <dl className="mt-6 flex flex-wrap gap-6 text-sm">
@@ -112,11 +148,15 @@ export default function DestinationPage({ params }: { params: { destinationSlug:
       </header>
 
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-bold text-text-primary">Fare table — all cars</h2>
+        <h2 className="font-heading text-2xl font-bold text-text-primary">
+          {isAirportRoute ? 'Airport transfer — cab options' : 'Fare table — all cars'}
+        </h2>
         <p className="mt-2 text-sm text-text-secondary">
-          {hasRangePricing
-            ? 'Route package fares are shown as negotiated ranges. Final quote depends on date, timing and trip type.'
-            : 'Indicative fares from Mhow. Cheapest sedan option is highlighted for quick comparison.'}
+          {isAirportRoute
+            ? 'Indicative one-way airport transfer rates from Mhow. Final fare depends on exact pickup/drop, timing and luggage — confirm on call or WhatsApp.'
+            : hasRangePricing
+              ? 'Route package fares are shown as negotiated ranges. Final quote depends on date, timing and trip type.'
+              : 'Indicative fares from Mhow. Cheapest sedan option is highlighted for quick comparison.'}
         </p>
         <div className="mt-6">
           <FareTable variant="destination" rows={rows} bookMessagePrefix={`Mhow to ${dest.name}`} />

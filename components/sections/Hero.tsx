@@ -1,21 +1,10 @@
 import { CallButton } from '@/components/ui/CallButton'
-import { ImageWithLoading } from '@/components/ui/ImageWithLoading'
+import { HeroBackground } from '@/components/sections/HeroBackground'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 export function Hero() {
   return (
     <section className="relative min-h-[520px] overflow-hidden">
-      <div className="absolute inset-0">
-        <ImageWithLoading
-          src="/images/hero-bg.jpg"
-          alt="Taxi on road in Madhya Pradesh"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          loadingMessage="Loading image…"
-          loadingLayerClassName="bg-secondary text-white/80"
-        />
-      </div>
+      <HeroBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/75 to-secondary/90" />
       <div className="relative mx-auto flex max-w-6xl flex-col justify-center gap-6 px-4 py-24 sm:py-28 lg:py-32">
         <p className="animate-fade-up text-sm font-medium uppercase tracking-widest text-primary motion-reduce:animate-none">

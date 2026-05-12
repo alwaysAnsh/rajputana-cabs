@@ -191,15 +191,6 @@ export const subServices: SubService[] = [
         ctaType: 'call',
       },
       {
-        id: 'urbania-13',
-        name: 'Force Urbania 13 Seater',
-        image: '/images/services/urbania.jpg',
-        description: 'Premium Force Urbania. Most booked for corporate & luxury group travel.',
-        farePerKm: 30,
-        farePerDay: 7000,
-        ctaType: 'call',
-      },
-      {
         id: 'urbania-17',
         name: 'Force Urbania 17 Seater',
         image: '/images/services/urbania.jpg',

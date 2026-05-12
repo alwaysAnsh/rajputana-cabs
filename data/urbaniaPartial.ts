@@ -8,15 +8,14 @@ import { subServiceImage as img } from './subServiceAssets'
 export const urbaniaRentalPartial: Omit<SubService, 'id' | 'title' | 'slug'> = {
   vehicles: [],
   shortDesc:
-    'Force Urbania on rent in Mhow from Rajputana Cabs — 11, 14 & 17 seater plus luxury Maharaja Urbania, from ₹28/km. GST-registered, insured fleet.',
-  startingFare: '₹28/km',
+    'Force Urbania on rent in Mhow from Rajputana Cabs — 14 & 17 seater plus luxury Maharaja Urbania, from ₹30/km. GST-registered, insured fleet.',
+  startingFare: '₹30/km',
   heroImage: img.toyotaVellfire,
   introHeading: 'Urbania on rent in Mhow & Indore, M.P.',
   intro:
-    'Rajputana Cabs serves Mhow and nearby Indore with tourist transport and taxis.\n\nWe offer Tempo Traveller on rent in Mhow and also provide our premium Force Urbania on rent in Mhow, starting at ₹28 per km.\n\nOur standard Tempo Travellers are available at fares ranging from ₹22 to ₹26 per km, and we offer 3+1 different models of Force Urbania in Mhow, like:',
+    'Rajputana Cabs serves Mhow and nearby Indore with tourist transport and taxis.\n\nWe offer Tempo Traveller on rent in Mhow and also provide our premium Force Urbania on rent in Mhow, starting from about ₹30 per km.\n\nOur standard Tempo Travellers are available at fares ranging from ₹22 to ₹26 per km, and we offer three Force Urbania options in Mhow, like:',
   availabilityListTitle: 'Available Urbania on rent in Mhow',
   availabilityList: [
-    '11 Seater Force Urbania',
     '14 Seater Force Urbania',
     '17 Seater Force Urbania',
     'Modified Luxury Maharaja Force Urbania',
@@ -28,20 +27,6 @@ export const urbaniaRentalPartial: Omit<SubService, 'id' | 'title' | 'slug'> = {
       id: 'urbania-models',
       heading: 'Urbania on rent in Mhow & Indore, M.P.',
       vehicles: [
-        {
-          id: 'urbania-11',
-          name: '11 Seater Force Urbania on rent in Mhow & Indore',
-          image: '/images/sub-services/tempo-12.jpeg',
-          description:
-            'The 11 seater Force Urbania is our starting model which you can rent in Mhow for local and outstation trips.',
-          fareLineOverrides: [
-            'Models: Force Urbania',
-            'Seating capacity: 11+1 people',
-            'Local 1 day fare: ₹6,000',
-            'Outstation fare: ₹28–30/km',
-          ],
-          ctaType: 'call',
-        },
         {
           id: 'urbania-14',
           name: '14 Seater Force Urbania on rent in Mhow & Indore',
@@ -159,14 +144,13 @@ export const urbaniaRentalPartial: Omit<SubService, 'id' | 'title' | 'slug'> = {
       caption: 'Scroll horizontally on small screens to see the full table.',
       headers: ['Taxi / van', 'Seating capacity', 'Per km fare', 'Local fare (1 day)'],
       rows: [
-        ['11 seater Urbania', '12', '₹28–30/km', '₹6,000'],
         ['14 seater Urbania', '15', '₹30–31/km', '₹6,400'],
         ['17 seater Urbania', '18', '₹32–34/km', '₹7,400'],
         ['Luxury Urbania (Maharaja)', '10', '₹35–40/km', '₹9,000'],
       ],
     },
     tempoAlternatives: {
-      intro: 'Apart from the four Force Urbania options above, you can also hire our Tempo Traveller in Mhow at:',
+      intro: 'Apart from the three Force Urbania options above, you can also hire our Tempo Traveller in Mhow at:',
       bullets: [
         '₹22/km and ₹5,000 local for 12 seater Tempo Traveller',
         '₹24/km and ₹5,500 local for 16 seater Tempo Traveller',
@@ -178,7 +162,7 @@ export const urbaniaRentalPartial: Omit<SubService, 'id' | 'title' | 'slug'> = {
   faqs: [
     {
       q: 'What will be the minimum rental for your Urbania in Mhow?',
-      a: 'Our starting fare for Urbania rental from Mhow is about ₹28 per km outstation and around ₹6,000 for local 1 day on the smallest Force Urbania, the 11 seater. Fares for 14 seater, 17 seater and luxury Urbania are shared above — call or WhatsApp Rajpal Singh Rathore at +91 99930 80333 or +91 99930 80444.',
+      a: 'Our starting fare for Urbania rental from Mhow on the 14 seater Force Urbania is about ₹30 per km outstation and around ₹6,400 for local 1 day. Fares for 17 seater and luxury Urbania are shared above — call or WhatsApp Rajpal Singh Rathore at +91 99930 80333 or +91 99930 80444.',
     },
     {
       q: 'What are the inclusions of hiring your Force Urbania in Mhow for local sightseeing and for outstation trips?',
@@ -186,11 +170,11 @@ export const urbaniaRentalPartial: Omit<SubService, 'id' | 'title' | 'slug'> = {
     },
     {
       q: 'How many people can sit in Force Urbania?',
-      a: 'The smallest Urbania model is 11 seater — maximum 12 people including driver row usage as per rules. In 14 seater, up to 15 people as per layout; in 17 seater up to 18; in our modified PKN luxury Force Urbania about 9–10 guests depending on configuration. We do not allow over-seating beyond permit.',
+      a: 'In 14 seater, up to 15 people as per layout; in 17 seater up to 18; in our modified PKN luxury Force Urbania about 9–10 guests depending on configuration. We do not allow over-seating beyond permit.',
     },
     {
       q: 'I want to hire your Force Urbania for long distance travel to Himachal, Jammu & Kashmir or southern India — is this vehicle suitable?',
-      a: 'Urbania is a modern tempo traveller from Force Motors, different from older 12 / 17 / 20 seater tempo designs. These models come with company-fit pushback seats, strong performance and AC on all seats — a strong choice for a group of about 11 to 18 people planning a long trip from Mhow to any region of India.',
+      a: 'Urbania is a modern tempo traveller from Force Motors, different from older 12 / 17 / 20 seater tempo designs. These models come with company-fit pushback seats, strong performance and AC on all seats — a strong choice for a group of about 14 to 18 people planning a long trip from Mhow to any region of India.',
     },
     {
       q: 'Is Force Urbania a good vehicle for wedding transportation in Mhow?',

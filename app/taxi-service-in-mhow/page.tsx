@@ -9,9 +9,9 @@ import { cars } from '@/data/cars'
 import { servicesFaqs } from '@/data/faqs'
 
 export const metadata: Metadata = {
-  title: 'Taxi Service in Mhow 2024 | All Cab Types',
+  title: 'Taxi, Cab & Tempo Hire in Mhow — Indore & Dhar Routes',
   description:
-    'Complete taxi service in Mhow. Sedan, SUV, Tempo Traveller. Starting ₹10/km. Airport, outstation, local trips.',
+    'Full taxi garage in Mhow: Dzire, Ertiga, Innova, Tempo & Urbania. Airport & outstation. WhatsApp for fares — book in minutes.',
   alternates: { canonical: '/taxi-service-in-mhow' },
 }
 
@@ -19,7 +19,9 @@ export default function ServicesPage() {
   return (
     <article className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
       <header className="mx-auto max-w-3xl text-center">
-        <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">Taxi Service in Mhow</h1>
+        <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
+          Taxi, cab & tempo hire in Mhow for Indore & Dhar
+        </h1>
         <p className="mt-4 text-lg text-text-secondary">
           Rajputana Cabs Mhow provides trusted local and outstation taxi service with transparent per-km pricing, clean cars
           and experienced drivers. We also offer luxury cars on rent, wedding guest transport, Tempo Traveller and Urbania
@@ -36,7 +38,9 @@ export default function ServicesPage() {
       </div>
 
       <section className="mt-16 space-y-10">
-        <h2 className="text-center font-heading text-2xl font-bold text-text-primary sm:text-3xl">All cab types</h2>
+        <h2 className="text-center font-heading text-2xl font-bold text-text-primary sm:text-3xl">
+          All cab types for Mhow, Indore & outstation booking
+        </h2>
         <div className="grid gap-8">
           {cars.map((car) => (
             <div
@@ -78,7 +82,7 @@ export default function ServicesPage() {
       </div>
 
       <section className="mt-16 rounded-xl border border-border bg-secondary px-6 py-10 text-center text-white">
-        <h2 className="font-heading text-2xl font-bold">Ready to book?</h2>
+        <h2 className="font-heading text-2xl font-bold">Ready to book your cab or tempo?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-white/85">
           Share your pickup point, destination and travel time — we confirm fare and cab type on WhatsApp or call.
         </p>

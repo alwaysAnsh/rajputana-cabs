@@ -2,8 +2,8 @@ import { BadgeCheck, Clock, IndianRupee, MapPin, ShieldCheck, Sparkles } from 'l
 
 const points = [
   {
-    title: 'Experienced Local Drivers',
-    body: 'Drivers with 5+ years experience in Mhow region',
+    title: 'Trusted drivers for MP roads',
+    body: 'Drivers with 5+ years experience in Mhow, Indore & Dhar region',
     icon: ShieldCheck,
   },
   {
@@ -27,8 +27,8 @@ const points = [
     icon: BadgeCheck,
   },
   {
-    title: 'All India Service',
-    body: 'Travel from Mhow to any city in India',
+    title: 'All India outstation cab',
+    body: 'Tempo & car hire from Mhow to any city in India',
     icon: MapPin,
   },
 ] as const
@@ -38,7 +38,9 @@ export function WhyChooseUs() {
     <section className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">Why Choose Us</h2>
+        <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">
+          Why Rajputana Cabs for Mhow, Indore & Dhar trips
+        </h2>
           <p className="mt-3 text-text-secondary">Local expertise, clear pricing and support that answers when you call.</p>
         </div>
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

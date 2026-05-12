@@ -7,12 +7,14 @@ import { Footer } from '@/components/layout/Footer'
 import { FloatingCTA } from '@/components/layout/FloatingCTA'
 import { ThemeProvider } from '@/components/layout/ThemeProvider'
 import { site } from '@/lib/site'
+import { getSiteUrl, jsonLdGraph, primaryKeywords } from '@/lib/seo'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['600', '700'],
   variable: '--font-poppins',
   display: 'swap',
+  adjustFontFallback: true,
 })
 
 const inter = Inter({
@@ -20,66 +22,36 @@ const inter = Inter({
   weight: ['400', '500'],
   variable: '--font-inter',
   display: 'swap',
+  adjustFontFallback: true,
 })
 
-const taxiServiceJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TaxiService',
-  name: site.businessName,
-  email: site.email,
-  telephone: site.phoneTel[0],
-  url: site.domain,
-  image: `${site.domain}/og-image.jpg`,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: site.addressLine,
-    addressLocality: 'Mhow',
-    addressRegion: 'Madhya Pradesh',
-    postalCode: '453441',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: site.geo.latitude,
-    longitude: site.geo.longitude,
-  },
-  areaServed: ['Mhow', 'Dhar', 'Indore', 'Ujjain', 'Omkareshwar', 'Maheshwar', 'Bhopal'],
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '00:00',
-    closes: '23:59',
-  },
-  priceRange: '₹₹',
-  currenciesAccepted: 'INR',
-  paymentAccepted: 'Cash, UPI, Card',
-}
-
 export const metadata: Metadata = {
-  metadataBase: new URL(site.domain),
+  metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Taxi Service in Mhow | Rajputana Cabs - ₹10/km',
-    template: '%s | Rajputana Cabs Mhow',
+    default: 'Premium Car & Taxi Rental in Mhow | Rajputana Cabs Indore',
+    template: '%s | Rajputana Cabs',
   },
   description:
-    'Book reliable taxi service in Mhow, MP. Local, outstation & airport cabs. Dzire, Ertiga, Innova available. Call or WhatsApp for instant booking.',
+    'Book cabs & tempo in Mhow, Indore & Dhar. Airport taxi, outstation, luxury & wedding cars. Call or WhatsApp for instant confirmation.',
+  keywords: [...primaryKeywords.split(', ')],
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: site.domain,
+    url: getSiteUrl(),
     siteName: site.businessName,
-    title: 'Taxi Service in Mhow | Rajputana Cabs',
+    title: 'Premium Car & Taxi Rental in Mhow | Rajputana Cabs',
     description:
-      'Book reliable taxi service in Mhow, MP. Local, outstation & airport cabs. Dzire, Ertiga, Innova available.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: site.businessName }],
+      'Taxi, cab, tempo & bus-style group hire across Mhow, Indore, Dhar & Pithampur. Transparent fares — call or WhatsApp to book.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: `${site.businessName} — taxi and tempo service` }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Taxi Service in Mhow | Rajputana Cabs',
-    description: 'Local, outstation & airport taxi in Mhow. Call or WhatsApp for instant booking.',
+    title: 'Premium Car & Taxi Rental in Mhow | Rajputana Cabs',
+    description: 'Local & outstation taxi in Mhow & Indore region. Call or WhatsApp for instant booking.',
   },
   robots: { index: true, follow: true },
+  category: 'travel',
 }
 
 const themeBootScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')}catch(e){}})()`
@@ -90,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen font-body antialiased">
         <Script id="theme-boot" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <ThemeProvider>
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(taxiServiceJsonLd) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph()) }} />
           <Header />
           <main className="pb-24">{children}</main>
           <Footer />

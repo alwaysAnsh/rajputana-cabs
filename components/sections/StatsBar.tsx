@@ -9,7 +9,10 @@ const statDelays = ['', '[animation-delay:70ms]', '[animation-delay:140ms]', '[a
 
 export function StatsBar() {
   return (
-    <section className="border-y border-border bg-surface">
+    <section className="border-y border-border bg-surface" aria-labelledby="stats-heading">
+      <h2 id="stats-heading" className="sr-only">
+        Rajputana Cabs at a glance
+      </h2>
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-10 md:grid-cols-4">
         {stats.map((s, i) => (
           <div key={s.label} className={`animate-fade-up text-center motion-reduce:animate-none ${statDelays[i] ?? ''}`}>

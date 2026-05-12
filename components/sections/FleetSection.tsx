@@ -5,7 +5,9 @@ export function FleetSection() {
   return (
     <section id="all-cab-types" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">All cab types</h2>
+        <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">
+          All cab types — sedan, MUV, SUV & Tempo Traveller in Mhow
+        </h2>
         <p className="mt-3 text-text-secondary">
           Sedans, MUVs, SUVs and Tempo Traveller — pick the vehicle that fits your group and route.
         </p>

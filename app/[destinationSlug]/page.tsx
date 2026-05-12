@@ -52,13 +52,15 @@ export function generateMetadata({ params }: { params: { destinationSlug: string
       description:
         'Book Mhow ↔ Indore Airport (IDR) taxi. Swift Dzire / Etios from ₹1,400+. Ertiga / Carens from ₹1,800+. Call or WhatsApp for pickup with flight tracking.',
       alternates: { canonical: `/${dest.slug}` },
+      keywords: ['airport taxi Mhow', 'Indore airport cab', 'IDR taxi', 'Rajputana Cabs'],
     }
   }
   const fare = calculateFare(dest.distanceKm, dzire.ratePerKm).oneWay
   return {
-    title: `Mhow to ${dest.name} Taxi | ₹${fare} Round Trip | Rajputana Cabs`,
-    description: `Book Mhow to ${dest.name} taxi at best fare. ${dest.distanceKm} km route. Sedan round trip from ₹${fare}. Call for instant booking.`,
+    title: `Mhow to ${dest.name} Taxi & Cab | ₹${fare} from Rajputana Cabs`,
+    description: `Book Mhow to ${dest.name} taxi (${dest.distanceKm} km). Sedan & MUV options — WhatsApp for lowest fare and instant booking.`,
     alternates: { canonical: `/${dest.slug}` },
+    keywords: [`Mhow to ${dest.name} taxi`, 'cab booking', 'outstation', 'Rajputana Cabs'],
   }
 }
 

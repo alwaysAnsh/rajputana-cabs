@@ -12,7 +12,11 @@ type NavItem = { href: string; label: string; match: (pathname: string) => boole
 
 const nav: NavItem[] = [
   { href: '/', label: 'Home', match: (p) => p === '/' },
-  { href: '/taxi-service-in-mhow', label: 'Services', match: (p) => p.startsWith('/taxi-service-in-mhow') },
+  {
+    href: '/taxi-service-in-mhow',
+    label: 'Services',
+    match: (p) => p.startsWith('/taxi-service-in-mhow') || p.startsWith('/services') || p.startsWith('/mhow/'),
+  },
   { href: '/contact', label: 'Contact', match: (p) => p.startsWith('/contact') },
 ]
 

@@ -10,10 +10,16 @@ import { homeFaqs } from '@/data/faqs'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Taxi Service in Mhow | Rajputana Cabs - ₹10/km',
+  title: 'Premium Car & Taxi Rental in Mhow | Indore & Dhar',
   description:
-    'Book reliable taxi service in Mhow, MP. Local, outstation & airport cabs. Dzire, Ertiga, Innova available. Call or WhatsApp for instant booking.',
+    'Rajputana Cabs — book taxi, cab & tempo in Mhow, Indore & Dhar. Airport runs, outstation & wedding fleets. WhatsApp now for a quote.',
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Premium Car & Taxi Rental in Mhow | Rajputana Cabs',
+    description:
+      'Trusted cab booking in Mhow with Indore & Dhar coverage. Sedan, MUV, Tempo & luxury — call 24/7 for instant confirmation.',
+    url: '/',
+  },
 }
 
 export default function HomePage() {

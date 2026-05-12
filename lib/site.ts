@@ -10,7 +10,7 @@ export const site = {
   mapsUrl: 'https://maps.google.com/?q=Mhow%2C%20Indore',
   domain: 'https://rajputanacabsmhow.in',
   baseCity: 'Mhow, Madhya Pradesh',
-  nearbyCities: ['Dhar', 'Indore', 'Ujjain', 'Omkareshwar', 'Maheshwar', 'Bhopal'] as const,
+  nearbyCities: ['Dhar', 'Indore', 'Pithampur', 'Ujjain', 'Omkareshwar', 'Maheshwar', 'Bhopal'] as const,
   geo: { latitude: 22.5557, longitude: 75.7612 },
 } as const
 

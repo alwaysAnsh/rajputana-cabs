@@ -4,6 +4,7 @@ import { site } from '@/lib/site'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/taxi-service-in-mhow', label: 'Taxi Service in Mhow' },
+  { href: '/services', label: 'Taxi by area (Mhow / Indore / Dhar)' },
   { href: '/contact', label: 'Contact' },
   { href: '/mhow-to-indore-taxi', label: 'Mhow to Indore' },
   { href: '/mhow-airport-taxi', label: 'Airport Taxi' },

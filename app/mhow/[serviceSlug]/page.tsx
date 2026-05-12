@@ -21,10 +21,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { serviceSlug: string } }): Metadata {
   const service = getSubServiceBySlug(params.serviceSlug)
   if (!service) return {}
+  const desc =
+    service.shortDesc.length > 155 ? `${service.shortDesc.slice(0, 152)}…` : service.shortDesc
   return {
-    title: `${service.title} | Rajputana Cabs Mhow`,
-    description: service.shortDesc,
+    title: `${service.title} — book in Mhow & Indore`,
+    description: `${desc} Call or WhatsApp Rajputana Cabs for availability.`,
     alternates: { canonical: `/mhow/${service.slug}` },
+    keywords: ['taxi Mhow', 'cab Indore', 'tempo hire', 'Rajputana Cabs', service.title.split(' ')[0]],
   }
 }
 
